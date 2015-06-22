@@ -1,0 +1,107 @@
+Script started on Thu 06 Jun 2013 10:31:23 PM EDT
+hkim142@matrix:~/oop244/w3> whoami
+hkim142
+hkim142@matrix:~/oop244/w3> cat w3.cpp List[K[K[K[Klist.h list.pp[K[Kcpp line.h line.cpp
+cat: w3.cpp: No such file or directory
+#define MAX_LINE 40
+#include "line.h"
+struct List{
+private:
+	int noline;
+	Line storeline[MAX_LINE];
+public:
+	void set(int no);
+	void display() const;
+};#include <iostream>
+using namespace std;
+#include "list.h"
+struct Line temp;
+void List::set(int no){
+	int lineno;
+	char maxstring[MAX_cc];
+	
+	noline=0;
+	while (noline < no){
+		cout <<"Line number :";
+		cin >> lineno;
+		cout <<"Enter String :";
+		cin>> maxstring;
+		bool valid =temp.set(lineno, maxstring);
+		if (valid==1){
+			storeline[noline]=temp;
+		  cout<<"accepted"<<endl;
+		  noline++;
+		}
+		else{
+			cout<<"rejected"<<endl;
+		}
+	}// end of while
+}
+void List::display() const{
+	for(int i=0; i<noline;i++){
+		storeline[i].display();
+		cout<<endl;
+	}
+}
+#define MAX_cc 40
+struct Line{
+	int no;
+	char maxstring [MAX_cc+1];
+public :
+	bool set (int n, const char* str);
+	void display() const;
+};#include <iostream>
+using namespace std;
+#include "line.h"
+
+bool Line::set(int n, const char* str){
+	bool valid = n >0;
+	if (valid==1){
+		if(str!=NULL){
+		int i;
+		no = n;
+		for (i =0 ;i <MAX_cc; i++){
+			maxstring[i]=str[i];
+			maxstring[i+1]='\0';}
+		}//str!=NULL
+		else{
+		valid=0;}
+	}//valid==1
+		else {
+			valid=0;
+			no =0;
+			maxstring [0]='\0';}
+		return valid;
+}//end of bool LINE
+
+
+void Line::display() const{
+	cout<< no << ' '<< maxstring <<endl;
+}// end of lin::display
+hkim142@matrix:~/oop244/w3> g++ -[Kmain.cpp ist.[K[K[K[Klist.cpp line.cpp
+hkim142@matrix:~/oop244/w3> a.out
+List Processor
+==============
+Enter number of items : 3
+Line number :1
+Enter String :IPc^H    PC144
+accepted
+Line number :2
+Enter String :OOP244
+accepted
+Line number :-3
+Enter String :xxx111
+rejected
+Line number :3
+Enter String :BTP200
+accepted
+1 IPC144
+
+2 OOP244
+
+3 BTP200
+
+hkim142@matrix:~/oop244/w3> exit
+exit
+
+Script done on Thu 06 Jun 2013 10:33:03 PM EDT
